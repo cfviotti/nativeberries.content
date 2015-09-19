@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    i18n:domain="naitiveberries.content"
+    metal:use-macro="context/main_template/macros/master"
+    lang="en">
+<body>
+
+<metal:main fill-slot="main">
+  <tal:main-macro metal:define-macro="main">
+
+
+<p class="" tal:content="structure context/title" />
+
+<div tal:define="image nocall:context/image"
+     tal:condition="nocall:image">
+    <img tal:attributes="src string:${context/absolute_url}/@@download/image/${image/filename};
+                         height image/_height | nothing;
+                         width image/_width | nothing;"
+        />
+</div>
+
+<div>
+
+                <img src="img/blessed.png" alt="Blessed by Nature" />
+
+
+<div tal:define="slogan nocall:context/slogan"
+     tal:condition="nocall:slogan">
+    <img tal:attributes="src string:${context/absolute_url}/@@download/slogan/${slogan/filename};
+                         height slogan/_height | nothing;
+                         width slogan/_width | nothing;"
+        />
+</div>
+
+    <p class="" tal:content="structure context/description" />
+
+
+    <p class="" tal:content="structure context/nutrition_facts" />
+    <p class="" tal:content="structure context/ingredients" />
+    <span tal:content="structure view/w/packs_size/render" /> <!-- Ver -->
+ 
+
+<div tal:define="icon nocall:context/icon"
+     tal:condition="nocall:icon">
+    <img tal:attributes="src string:${context/absolute_url}/@@download/icon/${icon/filename};
+                         height icon/_height | nothing;
+                         width icon/_width | nothing;"
+        />
+</div>
+  
+
+</div>
+
+  </tal:main-macro>
+</metal:main>
+
+</body>
+</html>
+

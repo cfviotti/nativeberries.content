@@ -1,0 +1,167 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    i18n:domain="naitiveberries.content"
+    metal:use-macro="context/main_template/macros/master"
+    lang="en">
+  <head>
+    <metal:js fill-slot="javascript_head_slot">
+
+  <script type="text/javascript">
+  function carouselSlideshow(carousel) {
+    
+      // Desabilita autoscrolling se o usuário clicar em "próximo" ou "anterior"
+    carousel.buttonNext.bind('click', function() {
+      carousel.startAuto(0);
+    });
+    carousel.buttonPrev.bind('click', function() {
+      carousel.startAuto(0);
+    });
+
+    // Pausa autoscrolling se o usuário colocar o ponteiro do mouse sobre o carrossel.
+      carousel.clip.hover(function() {
+          carousel.stopAuto();
+      }, function() {
+          carousel.startAuto();
+      });
+    
+      // Cria a área de controles (um "ul" cujo id é "bullets")
+      $(document.createElement('ul')).insertAfter('.jcarousel-container').attr('id', 'bullets');
+      
+    // Inclui os controles em forma de itens da lista
+      $('#slideshow .jcarousel-list li').each(function(index) {
+      var number = parseInt(index) + 1;
+      var item   = $(document.createElement('li'));
+      
+      // Para o 'li' criado, cria dentro um 'a'
+      // ... e dentro do 'a', um 'span'
+      // ... e dentro do 'span' coloca o número do slide.
+      $(item).append(document.createElement('a')).children().attr("href", "#")
+           .append(document.createElement('span')).children()
+           .append(number);
+      
+      // Insere na lista "bullets" criada antes o "li" criado agora.
+      $('#bullets').append(item);
+    });
+    
+    // Define o comportamento dos controles.
+    $('#slideshow').delegate('#bullets a', 'click', function() {
+      carousel.startAuto(0);
+      carousel.scroll($.jcarousel.intval($(this).text()));
+      return false;
+    }); 
+  }
+
+  jQuery(document).ready(function() {
+    
+      jQuery("#slideshow ul").jcarousel({
+          initCallback: carouselSlideshow,
+        scroll: 1,
+          visible: 1,
+          wrap: "both",
+          animation: 200,
+          auto: 3,
+          itemVisibleInCallback: {
+        onBeforeAnimation: function(c, o, i, s) {
+          i--;
+          $('#bullets a').removeClass('selected');
+          $('#bullets a:eq('+i+')').addClass('selected');
+        }
+      }        
+      });
+  });
+
+  </script>
+
+    </metal:js>
+
+  </head>
+
+  <body>
+
+    <div metal:fill-slot="main"
+         tal:define="utils python:context.restrictedTraverse('@@view_nativeberries_utils');
+                     folder python:getattr(context,'carousel', None);
+                     results python: utils.returnContent(path='/'.join(folder.getPhysicalPath()), portal_type=['Carousel'], review_state='published', sort_on='effective', sort_order='reverse')">
+
+      <div id="slideshow" class="carousel">
+        <ul class="jcarousel-skin-black">
+          <li class="carousel__item bg-image" style="background-image: url(++theme++nativeflavors.theme/img/bg-berries.jpg)">
+            <div class="row valign-middle-transform container" style="height: 100%">            
+              <div class="carousel__info small-6 columns">          
+                <h3 class="carousel__title">
+                  ACAÍ HAS THE AMAZONIAN TASTE. IT’S ONE WAY OF RECONECTING WITH EARTH. 
+                </h3>
+                <p class="carousel__desc">
+                  we brought you açai that still has its natural taste. Concentrated, no other fruit, no sugar. The taste of pure açai will help get you there.
+                </p>
+                <a href="#" class="leiaMais carousel__link">Our Products</a>
+              </div>
+              <div class="caroulsel__image small-4 columns">
+                <img  src="++theme++nativeflavors.theme/img/logo-berries.png">
+              </div>
+            </div>
+          </li>
+
+          <li class="carousel__item bg-image" style="background-image: url(++theme++nativeflavors.theme/img/bg-berries.jpg)">
+            <div class="row valign-middle-transform container" style="height: 100%">            
+              <div class="carousel__info large-6 columns">          
+                <h3 class="carousel__title">
+                  ACAÍ HAS THE AMAZONIAN TASTE. IT’S ONE WAY OF RECONECTING WITH EARTH. 
+                </h3>
+                <p class="carousel__desc">
+                  we brought you açai that still has its natural taste. Concentrated, no other fruit, no sugar. The taste of pure açai will help get you there.
+                </p>
+                <a href="#" class="leiaMais carousel__link">Our Products</a>
+              </div>
+              <div class="caroulsel__image large-4 columns">
+                <img  src="++theme++nativeflavors.theme/img/logo-berries.png">
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+
+<!-- <div id="slideshow">
+    <div class=" jcarousel-skin-black">
+        <div class="jcarousel-container jcarousel-container-horizontal" style="position: relative; display: block;">
+            <div class="jcarousel-clip jcarousel-clip-horizontal" style="position: relative;">
+                <ul class="jcarousel-list jcarousel-list-horizontal" style="overflow: hidden; position: relative; top: 0px; margin: 0px; padding: 0px; left: 0px;">
+                </ul>
+            </div>
+            <div class="jcarousel-prev jcarousel-prev-horizontal" style="display: block;"></div>
+            <div class="jcarousel-next jcarousel-next-horizontal" style="display: block;"></div>
+        </div>
+        <ul id="bullets"></ul>
+    </div>
+</div>
+-->
+
+      <div class="container bg-pattern--transparent bg-color--amarelo text-color--purple">
+        <div class="content row valign-middle">
+          <div class="large-4 columns text-center large-only-text-right">
+            <p class="content__text">Native Flavors has received permission to enter the forest and extract its fruits in a sustainable manner, respecting its cycles and working with the natives who have lived their whole lives in the coastal regions and have inherited the wisdom of the harvest </p>
+          </div>
+          <div class="large-4 columns text-center large-only-text-center">
+            <img class="content__image" src="++theme++nativeflavors.theme/img/logo-roxo2.png">
+          </div>
+          <div class="large-4 columns text-center large-only-text-left">
+            <p class="content__text">What you’re about to see is a result of a perfect combination of soil, humidity, plenty of fresh water, and the ideal temperature, blessed by Mother Nature.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container bg-image--casas text-color--white text-size--larger">
+        <div class="content row valign-middle text-center window-height">
+          <div class="columns">
+            <span class="home__blessed font--happy-fox">Blessed by Nature</span>
+          </div>
+        </div>
+      </div>       
+
+    </div>
+  </body>
+</html>

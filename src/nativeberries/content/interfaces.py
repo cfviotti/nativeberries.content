@@ -1,0 +1,155 @@
+# -*- coding: utf-8 -*-
+"""Module where all interfaces, events and exceptions live."""
+
+from five import grok
+from zope.publisher.interfaces.browser import IDefaultBrowserLayer
+from nativeberries.content import _
+from plone.namedfile.field import NamedBlobImage
+from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
+from zope import schema
+from plone.supermodel import model
+from plone.directives import form
+from zope.interface import Interface
+#from plone.app.multilingual.dx import directives
+from zope.interface import Interface
+
+
+class Utils(Interface):
+    def returnContent(self, sort_on='created', sort_order='reverse', review_state='published', **kw):
+        """Return data from catalog."""
+
+class INativeberriesContentLayer(IDefaultBrowserLayer):
+    """Marker interface that defines a browser layer."""
+
+class IProduct(model.Schema):
+    """Represents a product."""
+
+#    directives.languageindependent('title')
+    title = schema.TextLine(
+        title=_(u'Product Name'),
+        description=_(u'Add the name of the product.'),
+        required=True,
+    )
+
+#    directives.languageindependent('description')
+    description = schema.Text(
+        title=_(u'Description'),
+        description=_(u'Add the product description.'),
+        required=False,
+    )
+
+#    directives.languageindependent('image')
+    image = NamedBlobImage(
+        title=_(u'Product Image'),
+        description=_(u'Add the image that represents the product.'),
+        required=True,
+    )
+
+#    directives.languageindependent('image')
+    flavor_image = NamedBlobImage(
+        title=_(u'Flavor Image'),
+        description=_(u'Add the image that represents the flavor.'),
+        required=True,
+    )
+
+
+#    directives.languageindependent('slogan')
+    slogan = NamedBlobImage(
+        title=_(u'Slogan'),
+        description=_(u'Add the image that represents the product slogan.'),
+        required=True,
+    )
+
+#    directives.languageindependent('nutrition_facts')
+    nutrition_facts = NamedBlobImage(
+        title=_(u'Nutrition Facts'),
+        description=_(u'Add the image that represents the nutrition facts, ingredients and packs size.'),
+        required=True,
+    )
+
+
+class IRecipe(model.Schema):
+    """Represents a recipe."""
+
+#    directives.languageindependent('title')
+    title = schema.TextLine(
+        title=_(u'Recipe Name'),
+        description=_(u'Add the name of the recipe.'),
+        required=True,
+    )
+
+#    directives.languageindependent('created_by')
+    created_by = schema.Text(
+        title=_(u'Created by'),
+        description=_(u'Who created the recipe.'),
+        required=False,
+    )
+
+#    directives.languageindependent('ingredients')
+    form.widget(ingredients=WysiwygFieldWidget)
+    ingredients = schema.Text(
+        title=_(u'Ingredients'),
+        description=_(u'Add the recipe ingredients.'),
+        required=True,
+    )
+
+#    directives.languageindependent('preparation')
+    form.widget(preparation=WysiwygFieldWidget)
+    preparation = schema.Text(
+        title=_(u'Preparation'),
+        description=_(u'Add the recipe preparation.'),
+        required=True,
+    )
+
+#    directives.languageindependent('image')
+    image = NamedBlobImage(
+        title=_(u'Recipe Image'),
+        description=_(u'Add the recipe image.'),
+        required=True,
+    )
+
+class ICarousel(model.Schema):
+    """Represents a carousel content."""
+
+#    directives.languageindependent('title')
+    title = schema.TextLine(
+        title=_(u'Title'),
+        description=_(u'Add the name of the item that will be presented in the carousel.'),
+        required=True,
+    )
+
+#    directives.languageindependent('description')
+    description = schema.Text(
+        title=_(u'Description'),
+        description=_(u'Add the description of the item that will be presented in the carousel.'),
+        required=True,
+    )
+
+#    directives.languageindependent('image')
+    image = NamedBlobImage(
+        title=_(u'Background Image'),
+        description=_(u'Add the background image for the carousel.'),
+        required=True,
+    )
+
+#    directives.languageindependent('first_plan_image')
+    first_plan_image = NamedBlobImage(
+        title=_(u'First Plan Image'),
+        description=_(u'Add the first plan image for the carousel.'),
+        required=True,
+    )
+
+#    directives.languageindependent('link')
+    link = schema.Text(
+        title=_(u'Link'),
+        description=_(u'Add the link that will redirect the page.'),
+        required=True,
+    )
+
+#    directives.languageindependent('link_title')
+    link_title = schema.Text(
+        title=_(u'Link Title'),
+        description=_(u'Add the link title.'),
+        required=True,
+    )
+

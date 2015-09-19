@@ -1,0 +1,61 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:grok="http://namespaces.zope.org/grok"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="nativeberries.content">
+
+    <includeDependencies package="." />
+
+    <five:registerPackage package="." />
+
+    <include package="plone.app.contentmenu" />
+    <include package="plone.app.dexterity" />
+
+    <i18n:registerTranslations directory="locales" />
+
+    <permission
+        id="nativeberries.content.AddProduct"
+        title="nativeberries.content: Add Product"
+        />
+
+    <permission
+        id="nativeberries.content.AddRecipe"
+        title="nativeberries.content: Add Recipe"
+        />
+
+    <permission
+        id="nativeberries.content.AddCarousel"
+        title="nativeberries.content: Add Carousel"
+        />
+
+    <include package=".browser" />
+
+    <grok:grok package="." />
+
+    <browser:page
+       for="*"
+       name="view_nativeberries_utils"
+       class=".utils.Utils"
+       permission="zope2.Public"
+       allowed_interface=".interfaces.Utils"
+       />
+
+    <genericsetup:registerProfile
+        name="default"
+        title="nativeberries.content"
+        directory="profiles/default"
+        description="Installs the nativeberries.content add-on."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <genericsetup:importStep
+        name="nativeberries.content-postInstall"
+        title="nativeberries.content post_install import step"
+        description="Post install import step from nativeberries.content"
+        handler=".setuphandlers.post_install">
+    </genericsetup:importStep>
+
+</configure>

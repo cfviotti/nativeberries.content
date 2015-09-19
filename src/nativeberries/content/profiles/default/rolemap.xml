@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="nativeberries.content: Add Product" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+    </permission>
+    <permission name="nativeberries.content: Add Recipe" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+    </permission>
+    <permission name="nativeberries.content: Add Carousel" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+    </permission>
+  </permissions>
+</rolemap>

@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="nativeberries.content">
+
+    <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+    <include package="z3c.jbot" file="meta.zcml" />
+    <browser:jbot
+        directory="overrides"
+        layer="nativeberries.content.interfaces.INativeberriesContentLayer"
+        />
+
+    <!-- Publish static files -->
+    <browser:resourceDirectory
+        name="nativeberries.content"
+        directory="static"
+        />
+
+</configure>

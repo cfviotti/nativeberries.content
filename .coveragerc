@@ -1,0 +1,6 @@
+[report]
+include =
+    src/nativeberries/*
+omit =
+    */test*
+    */upgrades/*
