@@ -1,0 +1,218 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    i18n:domain="naitiveberries.content"
+    metal:use-macro="context/main_template/macros/master"
+    lang="en">
+  <body>
+  <div metal:fill-slot="main">
+  
+    <div class="container bg-banana text-center bg-color--banana-yellow">
+      <div class="content product-content valign-middle row">
+        <div class="medium-5 columns">
+          <div class="column-container">
+            <div class="product__items">
+                
+             <div class="product__item">
+
+               <div class="product__name font--happy-fox text-size--large">
+                 Sorbet
+               </div>
+               <div class="product__image">
+                 <img src="++theme++nativeflavors.theme/img/product-sorbet-banana.png">
+               </div>
+               <div class="expand__icon">
+                 <img src="++theme++nativeflavors.theme/img/expand.png">
+               </div>
+                
+               <div class="product__more-info">
+                  <div role="button" class="more-info__close">
+                    <img src="++theme++nativeflavors.theme/img/close.png">
+                  </div>
+
+                  <div class="more-info__item">
+                    <img src="++theme++nativeflavors.theme/img/nutrition-facts.png">
+                  </div>
+                  <div class="more-info__item">
+                    <img src="++theme++nativeflavors.theme/img/sizes.png">
+                  </div>
+               </div>
+
+             </div>
+                
+            </div>
+          </div>
+        </div> 
+    
+        <div class="medium-2 pad columns product-bg">
+          <div class="bg-flavor">
+
+          </div>
+        </div>      
+    
+        <div class="medium-5 columns">
+    
+          <div class="column-container">
+            <div class="product__flavor">
+              <div class="flavor__image">
+                <img src="++theme++nativeflavors.theme/img/flavor-image-banana.png">            
+              </div>        
+              <div class="flavor__name font--happy-fox text-size--larger">
+                Grateful Acaí <br> Banana
+              </div>  
+              <div class="flavor__icon">
+                <img src="++theme++nativeflavors.theme/img/flavor-icon-banana.png">
+              </div>
+              <div class="flavor__info">
+                <div class="flavor__title font--happy-fox text-size--larger">
+                  to eat on your knees
+                </div>            
+                <div class="flavor__text text-left">
+                  Junte as mãos em prece e agradeça esse encontro:
+                  a fruta mais brasileira encontra o sabor da selva
+                  amazônica. Os indígenas agradecem as refeições
+                  dançando. Energia para você fazer o mesmo
+                  não vai faltar.
+                </div>
+              </div>
+            </div>
+          </div>
+    
+        </div>      
+      </div>
+    </div>
+
+    <div class="container bg-banana text-center bg-color--azul">
+      <div class="content valign-middle row">
+        <div class="medium-5 columns">
+          <div class="column-container">
+            <div class="product__items">
+                
+             <div class="product__item">
+               <div class="product__name font--happy-fox text-size--large">
+                 Sorbet
+               </div>
+               <div class="product__image">
+                 <img src="++theme++nativeflavors.theme/img/product-sorbet-banana.png">
+               </div>
+               <div class="expand__icon">
+                 <img src="++theme++nativeflavors.theme/img/expand.png">
+               </div>
+                
+               <div class="product__more-info">
+                <div class="row valign-middle valign-middle-transform">
+
+                  <div role="button" class="more-info__close">
+                    <img src="++theme++nativeflavors.theme/img/close.png">
+                  </div>
+
+                  <div class="small-5 columns">
+                    <img src="++theme++nativeflavors.theme/img/nutrition-facts.png">
+                  </div>
+                  <div class="small-7 columns">
+                    <img src="++theme++nativeflavors.theme/img/sizes.png">
+                  </div>
+                </div>
+               </div>
+             </div>
+             <div class="product__item">
+               <div class="product__name font--happy-fox text-size--large">
+                 Sorbet
+               </div>
+               <div class="product__image">
+                 <img src="++theme++nativeflavors.theme/img/product-sorbet-banana.png">
+               </div>
+               <div class="expand__icon">
+                 <img src="++theme++nativeflavors.theme/img/expand.png">
+               </div>
+                
+               <div class="product__more-info">
+                <div class="row valign-middle valign-middle-transform">
+
+                  <div role="button" class="more-info__close">
+                    <img src="++theme++nativeflavors.theme/img/close.png">
+                  </div>
+
+                  <div class="small-5 columns">
+                    <img src="++theme++nativeflavors.theme/img/nutrition-facts.png">
+                  </div>
+                  <div class="small-7 columns">
+                    <img src="++theme++nativeflavors.theme/img/sizes.png">
+                  </div>
+                </div>
+               </div>
+             </div>
+             <div class="product__item">
+               <div class="product__name font--happy-fox text-size--large">
+                 Sorbet
+               </div>
+               <div class="product__image">
+                 <img src="++theme++nativeflavors.theme/img/product-sorbet-banana.png">
+               </div>
+               <div class="expand__icon">
+                 <img src="++theme++nativeflavors.theme/img/expand.png">
+               </div>
+                
+               <div class="product__more-info">
+                <div class="row valign-middle valign-middle-transform">
+
+                  <div role="button" class="more-info__close">
+                    <img src="++theme++nativeflavors.theme/img/close.png">
+                  </div>
+
+                  <div class="small-5 columns">
+                    <img src="++theme++nativeflavors.theme/img/nutrition-facts.png">
+                  </div>
+                  <div class="small-7 columns">
+                    <img src="++theme++nativeflavors.theme/img/sizes.png">
+                  </div>
+                </div>
+               </div>
+             </div>
+                
+            </div>
+          </div>
+        </div> 
+    
+        <div class="medium-2 pad columns product-bg">
+          <div class="bg-flavor">
+
+          </div>
+        </div>      
+    
+        <div class="medium-5 columns">
+    
+          <div class="column-container">
+            <div class="product__flavor">
+              <div class="flavor__image">
+                <img src="++theme++nativeflavors.theme/img/flavor-image-banana.png">            
+              </div>        
+              <div class="flavor__name font--happy-fox text-size--larger">
+                Grateful Acaí <br> Banana
+              </div>  
+              <div class="flavor__icon">
+                <img src="++theme++nativeflavors.theme/img/flavor-icon-banana.png">
+              </div>
+              <div class="flavor__info">
+                <div class="flavor__title font--happy-fox text-size--larger">
+                  to eat on your knees
+                </div>            
+                <div class="flavor__text text-left">
+                  Junte as mãos em prece e agradeça esse encontro:
+                  a fruta mais brasileira encontra o sabor da selva
+                  amazônica. Os indígenas agradecem as refeições
+                  dançando. Energia para você fazer o mesmo
+                  não vai faltar.
+                </div>
+              </div>
+            </div>
+          </div>
+    
+        </div>      
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
